@@ -1,0 +1,1941 @@
+{
+  "nutritionists": [
+    {
+      "id": "1",
+      "name": "Dr. Ayesha Abbas",
+      "qualification": "MBBS, Masters (Nutrition), Diploma (Nutrition)",
+      "specialization": "Diet And Weight Loss, Dietary Guidance, Weight Loss Management",
+      "experience": "15 Yrs",
+      "city": "Karachi",
+      "hospitalClinic": "Medilink Hospital",
+      "about": "Dr. Ayesha Abbas is a qualified nutritionist with 15 Yrs of experience, specializing in Diet And Weight Loss, Dietary Guidance.",
+      "rating": 4.45,
+      "totalReviews": 286,
+      "email": "contact@drayeshaabbasnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 3000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "2",
+      "name": "Mr. Uzair Amanullah",
+      "qualification": "MSc , Clinical Dietitian, Remedy Consultant, Natural Health",
+      "specialization": "Healthy Eating, Lifestyle, Health",
+      "experience": "15 Yrs",
+      "city": "Karachi",
+      "hospitalClinic": "Video Consultation",
+      "about": "Mr. Uzair Amanullah is a qualified nutritionist with 15 Yrs of experience, specializing in Healthy Eating, Lifestyle.",
+      "rating": 4.95,
+      "totalReviews": 165,
+      "email": "contact@mruzairamanullahnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 1500,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "3",
+      "name": "Rabia Anwer",
+      "qualification": "MSC (Food & Nutrition), MSPH, BSC",
+      "specialization": "Weight Loss Management, Weight Loss Management, Weight Loss Management",
+      "experience": "21 Yrs",
+      "city": "Karachi",
+      "hospitalClinic": "Video Consultation",
+      "about": "Rabia Anwer is a qualified nutritionist with 21 Yrs of experience, specializing in Weight Loss Management, Weight Loss Management.",
+      "rating": 4.75,
+      "totalReviews": 121,
+      "email": "contact@rabiaanwernutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 3500,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "23242",
+      "name": "Rd. Bareera Najeeb",
+      "qualification": "Rs. 500",
+      "specialization": "Online, Online, Online",
+      "experience": "4.9/5",
+      "city": "Karachi",
+      "hospitalClinic": "Video Consultation",
+      "about": "Rd. Bareera Najeeb is a qualified nutritionist with 4.9/5 of experience, specializing in Online, Online.",
+      "rating": 4.5,
+      "totalReviews": 41,
+      "email": "contact@rdbareeranajeebnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 2000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "5",
+      "name": "Mehwish Maqsood",
+      "qualification": "BS",
+      "specialization": "Weight Loss Management, Weight Loss Management, Weight Loss Management",
+      "experience": "6 Yrs",
+      "city": "Karachi",
+      "hospitalClinic": "Video Consultation",
+      "about": "Mehwish Maqsood is a qualified nutritionist with 6 Yrs of experience, specializing in Weight Loss Management, Weight Loss Management.",
+      "rating": 4.85,
+      "totalReviews": 97,
+      "email": "contact@mehwishmaqsoodnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 1000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "6",
+      "name": "Ms. Zoha Hafeez",
+      "qualification": "Doctor of Clinical Nutrition",
+      "specialization": "Nutrition & Diet Planning",
+      "experience": "4 Yrs",
+      "city": "Karachi",
+      "hospitalClinic": "Video Consultation",
+      "about": "Ms. Zoha Hafeez is a qualified nutritionist with 4 Yrs of experience, specializing in Nutrition & Diet Planning.",
+      "rating": 4.85,
+      "totalReviews": 65,
+      "email": "contact@mszohahafeeznutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 800,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "7",
+      "name": "Ms. Mehnaz",
+      "qualification": "Bachelors in Eastern Medicine & Surgery",
+      "specialization": "Nutrition & Diet Planning",
+      "experience": "25 Yrs",
+      "city": "Karachi",
+      "hospitalClinic": "Video Consultation",
+      "about": "Ms. Mehnaz is a qualified nutritionist with 25 Yrs of experience, specializing in Nutrition & Diet Planning.",
+      "rating": 4.85,
+      "totalReviews": 34,
+      "email": "contact@msmehnaznutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 800,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "8",
+      "name": "Dr. Sumaira Nasim",
+      "qualification": "MSc (Food and Nutrition), MPH (Australia), PhD Nutrition (U.K. - ongoing)",
+      "specialization": "Nutrition & Diet Planning",
+      "experience": "8 Yrs",
+      "city": "Karachi",
+      "hospitalClinic": "Video Consultation",
+      "about": "Dr. Sumaira Nasim is a qualified nutritionist with 8 Yrs of experience, specializing in Nutrition & Diet Planning.",
+      "rating": 4.8,
+      "totalReviews": 27,
+      "email": "contact@drsumairanasimnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 3000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "9",
+      "name": "Asst. Prof. Zubala Yasir Lutfi",
+      "qualification": "BS (Food Science & Technology), Ph.D, CNS (Certified Nutrition Specialist).",
+      "specialization": "Weight Loss Management, High Blood Pressure, Diabetes",
+      "experience": "7 Yrs",
+      "city": "Karachi",
+      "hospitalClinic": "Video Consultation",
+      "about": "Asst. Prof. Zubala Yasir Lutfi is a qualified nutritionist with 7 Yrs of experience, specializing in Weight Loss Management, High Blood Pressure.",
+      "rating": 4.8,
+      "totalReviews": 26,
+      "email": "contact@asstprofzubalayasirlutfinutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 2500,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "8942",
+      "name": "Hora Rizwan (Rd)",
+      "qualification": "BS Nutrition & Dietetics",
+      "specialization": "Nutrition & Diet Planning",
+      "experience": "1 Yrs",
+      "city": "Karachi",
+      "hospitalClinic": "Video Consultation",
+      "about": "Hora Rizwan (Rd) is a qualified nutritionist with 1 Yrs of experience, specializing in Nutrition & Diet Planning.",
+      "rating": 4.4,
+      "totalReviews": 15,
+      "email": "contact@horarizwanrdnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 800,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "11",
+      "name": "Rutaab Khan",
+      "qualification": "BS Nutrition",
+      "specialization": "Weight Loss And Management, Diabetic Diet, Pediatric Nutrition",
+      "experience": "3 Yrs",
+      "city": "Karachi",
+      "hospitalClinic": "Video Consultation",
+      "about": "Rutaab Khan is a qualified nutritionist with 3 Yrs of experience, specializing in Weight Loss And Management, Diabetic Diet.",
+      "rating": 4.6,
+      "totalReviews": 11,
+      "email": "contact@rutaabkhannutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 1000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "12",
+      "name": "Meena Iqbal Faruqi",
+      "qualification": "M.Phil. Public Health M.Sc. Food and Nutrition",
+      "specialization": "Weight Management, Weight Loss, Weight Loss Management",
+      "experience": "4 Yrs",
+      "city": "Karachi",
+      "hospitalClinic": "Video Consultation",
+      "about": "Meena Iqbal Faruqi is a qualified nutritionist with 4 Yrs of experience, specializing in Weight Management, Weight Loss.",
+      "rating": 4.0,
+      "totalReviews": 6,
+      "email": "contact@meenaiqbalfaruqinutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 700,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "13",
+      "name": "Nida Saeed",
+      "qualification": "BS nutrition",
+      "specialization": "Diet Counselling, Drug-Food Interactions, Drug Information",
+      "experience": "1 Yrs",
+      "city": "Karachi",
+      "hospitalClinic": "Video Consultation",
+      "about": "Nida Saeed is a qualified nutritionist with 1 Yrs of experience, specializing in Diet Counselling, Drug-Food Interactions.",
+      "rating": 5.0,
+      "totalReviews": 2,
+      "email": "contact@nidasaeednutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 1000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "14",
+      "name": "Ms Aroosa Touseef",
+      "qualification": "DDNS",
+      "specialization": "Kidney Stones, Weight Loss Management, Diet Plan For Diabetes",
+      "experience": "4 Yrs",
+      "city": "Lahore",
+      "hospitalClinic": "Video Consultation",
+      "about": "Ms Aroosa Touseef is a qualified nutritionist with 4 Yrs of experience, specializing in Kidney Stones, Weight Loss Management.",
+      "rating": 4.9,
+      "totalReviews": 2738,
+      "email": "contact@msaroosatouseefnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 2000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "15",
+      "name": "Ms. Safeena Amjad",
+      "qualification": "MSc (Food & Nutrition) , PGDD , M.Phil. (Food & Nutrition)",
+      "specialization": "Weight Loss Management, Pcos, Uric Acid",
+      "experience": "13 Yrs",
+      "city": "Lahore",
+      "hospitalClinic": "Video Consultation",
+      "about": "Ms. Safeena Amjad is a qualified nutritionist with 13 Yrs of experience, specializing in Weight Loss Management, Pcos.",
+      "rating": 4.85,
+      "totalReviews": 666,
+      "email": "contact@mssafeenaamjadnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 2500,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "16",
+      "name": "Yumna Chattha",
+      "qualification": "BS. (Hons.) Food, Nutrition & Dietetics, PGDD",
+      "specialization": "Nutrition & Diet Planning",
+      "experience": "5 Yrs",
+      "city": "Lahore",
+      "hospitalClinic": "Video Consultation",
+      "about": "Yumna Chattha is a qualified nutritionist with 5 Yrs of experience, specializing in Nutrition & Diet Planning.",
+      "rating": 4.8,
+      "totalReviews": 402,
+      "email": "contact@yumnachatthanutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 4000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "23242",
+      "name": "Rd. Bareera Najeeb",
+      "qualification": "Rs. 500",
+      "specialization": "Online, Online, Online",
+      "experience": "4.9/5",
+      "city": "Lahore",
+      "hospitalClinic": "Video Consultation",
+      "about": "Rd. Bareera Najeeb is a qualified nutritionist with 4.9/5 of experience, specializing in Online, Online.",
+      "rating": 4.5,
+      "totalReviews": 38,
+      "email": "contact@rdbareeranajeebnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 2000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "18",
+      "name": "Ms Sabahat Zubair Rd",
+      "qualification": "BSc (Food & Nutrition), MSc (Food & Nutrition), RDD",
+      "specialization": "Diet Counselling, Weight Management, Renal Disease (hemodialysis)",
+      "experience": "13 Yrs",
+      "city": "Lahore",
+      "hospitalClinic": "Video Consultation",
+      "about": "Ms Sabahat Zubair Rd is a qualified nutritionist with 13 Yrs of experience, specializing in Diet Counselling, Weight Management.",
+      "rating": 4.85,
+      "totalReviews": 390,
+      "email": "contact@mssabahatzubairrdnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 2500,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "19",
+      "name": "Mehak Zafar",
+      "qualification": "Doctor of Nutrition Sciences (DNS)",
+      "specialization": "Weight Loss Management, Weight Gain, CVDs",
+      "experience": "3 Yrs",
+      "city": "Lahore",
+      "hospitalClinic": "Video Consultation",
+      "about": "Mehak Zafar is a qualified nutritionist with 3 Yrs of experience, specializing in Weight Loss Management, Weight Gain.",
+      "rating": 4.7,
+      "totalReviews": 248,
+      "email": "contact@mehakzafarnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 800,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "20",
+      "name": "Dr. Shehla Javed",
+      "qualification": "MBBS, DTM, H(UK), DCH",
+      "specialization": "Nutrition & Diet Planning",
+      "experience": "25 Yrs",
+      "city": "Lahore",
+      "hospitalClinic": "Video Consultation",
+      "about": "Dr. Shehla Javed is a qualified nutritionist with 25 Yrs of experience, specializing in Nutrition & Diet Planning.",
+      "rating": 4.75,
+      "totalReviews": 266,
+      "email": "contact@drshehlajavednutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 5000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "15001",
+      "name": "Ms. Ayesha Talat Rd",
+      "qualification": "DNS (Doctor of Nutritional Sciences)",
+      "specialization": "Weight Loss Management, Healthy Clean Eating (Diet For Foodies), Diet For Immunity (Coronavirus)",
+      "experience": "5 Yrs",
+      "city": "Lahore",
+      "hospitalClinic": "Video Consultation",
+      "about": "Ms. Ayesha Talat Rd is a qualified nutritionist with 5 Yrs of experience, specializing in Weight Loss Management, Healthy Clean Eating (Diet For Foodies).",
+      "rating": 4.8,
+      "totalReviews": 172,
+      "email": "contact@msayeshatalatrdnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 1000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "22",
+      "name": "Zoha Sohail",
+      "qualification": "BS (Hons.) Food and Nutrition, Post Graduate Diploma in Dietetics, MS Clinical Nutrition",
+      "specialization": "Nutrition & Diet Planning",
+      "experience": "6 Yrs",
+      "city": "Lahore",
+      "hospitalClinic": "Video Consultation",
+      "about": "Zoha Sohail is a qualified nutritionist with 6 Yrs of experience, specializing in Nutrition & Diet Planning.",
+      "rating": 4.85,
+      "totalReviews": 133,
+      "email": "contact@zohasohailnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 1500,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "23",
+      "name": "Dr. Asem Jawaid",
+      "qualification": "MBBS, MSc Human Nutrition & Dietetics, Certified Sports Nutritionist, ISSA Certified Personal Trainer",
+      "specialization": "Weight Loss Management, Cholesterol /Hypertension, Assessment",
+      "experience": "8 Yrs",
+      "city": "Lahore",
+      "hospitalClinic": "Video Consultation",
+      "about": "Dr. Asem Jawaid is a qualified nutritionist with 8 Yrs of experience, specializing in Weight Loss Management, Cholesterol /Hypertension.",
+      "rating": 4.7,
+      "totalReviews": 142,
+      "email": "contact@drasemjawaidnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 2000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "24",
+      "name": "Moeena Baig",
+      "qualification": "BS (Hons), MPhil (Clinical Nutrition), PGPN (Pediatric Nutrition)",
+      "specialization": "Pay Online & Save Rs. 300",
+      "experience": "6 Yrs",
+      "city": "Lahore",
+      "hospitalClinic": "Video Consultation",
+      "about": "Moeena Baig is a qualified nutritionist with 6 Yrs of experience, specializing in Pay Online & Save Rs. 300.",
+      "rating": 4.9,
+      "totalReviews": 123,
+      "email": "contact@moeenabaignutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 3000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "25",
+      "name": "Qurat Ul Ain Anis",
+      "qualification": "B.S (Hons.) Food and Nutrition",
+      "specialization": "Weight Loss Management, Cholesterol /Hypertension, Diet Plan For Diabetes",
+      "experience": "5 Yrs",
+      "city": "Lahore",
+      "hospitalClinic": "Video Consultation",
+      "about": "Qurat Ul Ain Anis is a qualified nutritionist with 5 Yrs of experience, specializing in Weight Loss Management, Cholesterol /Hypertension.",
+      "rating": 4.85,
+      "totalReviews": 115,
+      "email": "contact@quratulainanisnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 2000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "24387",
+      "name": "Shafaq Bushra Rd",
+      "qualification": "Ms Community Health and Nutrition, PGD Dietetics, MSc Food and Nutrition",
+      "specialization": "Weight Loss Management, Cholesterol /Hypertension, Assessment",
+      "experience": "11 Yrs",
+      "city": "Islamabad",
+      "hospitalClinic": "Video Consultation",
+      "about": "Shafaq Bushra Rd is a qualified nutritionist with 11 Yrs of experience, specializing in Weight Loss Management, Cholesterol /Hypertension.",
+      "rating": 4.9,
+      "totalReviews": 126,
+      "email": "contact@shafaqbushrardnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 1000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "27",
+      "name": "Fariha Batool",
+      "qualification": "BSc ( Hons Human Nutrition and Dietetics )",
+      "specialization": "Nutrition, Weight Loss Management, Diet Plan For Diabetes",
+      "experience": "2 Yrs",
+      "city": "Islamabad",
+      "hospitalClinic": "Video Consultation",
+      "about": "Fariha Batool is a qualified nutritionist with 2 Yrs of experience, specializing in Nutrition, Weight Loss Management.",
+      "rating": 4.5,
+      "totalReviews": 29,
+      "email": "contact@farihabatoolnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 2000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "28",
+      "name": "Prof. Tineenullah Fahad",
+      "qualification": "DC (Doctor of Chiropractic), MD, CNS, RNP, P.hD- Genetics, Diploma in Hijama",
+      "specialization": "General Physician, Back Pain, Neck Pain",
+      "experience": "14 Yrs",
+      "city": "Islamabad",
+      "hospitalClinic": "Video Consultation",
+      "about": "Prof. Tineenullah Fahad is a qualified nutritionist with 14 Yrs of experience, specializing in General Physician, Back Pain.",
+      "rating": 4.6,
+      "totalReviews": 66,
+      "email": "contact@proftineenullahfahadnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 1500,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "23242",
+      "name": "Rd. Bareera Najeeb",
+      "qualification": "Rs. 500",
+      "specialization": "Online, Online, Online",
+      "experience": "4.9/5",
+      "city": "Islamabad",
+      "hospitalClinic": "Video Consultation",
+      "about": "Rd. Bareera Najeeb is a qualified nutritionist with 4.9/5 of experience, specializing in Online, Online.",
+      "rating": 4.5,
+      "totalReviews": 45,
+      "email": "contact@rdbareeranajeebnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 2000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "30",
+      "name": "Dr. Muhammad Israr Khan",
+      "qualification": "BSc-Nutrition , MSc-Nutrition , PHD-Human Nutrition",
+      "specialization": "Nutrition & Diet Planning",
+      "experience": "14 Yrs",
+      "city": "Islamabad",
+      "hospitalClinic": "Video Consultation",
+      "about": "Dr. Muhammad Israr Khan is a qualified nutritionist with 14 Yrs of experience, specializing in Nutrition & Diet Planning.",
+      "rating": 4.85,
+      "totalReviews": 331,
+      "email": "contact@drmuhammadisrarkhannutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 4000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "31",
+      "name": "Kinza Syed",
+      "qualification": "Msc Public Health & Health Promotion, Mphil Clinical Nutrition",
+      "specialization": "Weight Loss Management, Assessment, Diagnosis And Treatment Of Dietary And Nutritional Problems",
+      "experience": "9 Yrs",
+      "city": "Islamabad",
+      "hospitalClinic": "Video Consultation",
+      "about": "Kinza Syed is a qualified nutritionist with 9 Yrs of experience, specializing in Weight Loss Management, Assessment.",
+      "rating": 5.0,
+      "totalReviews": 4,
+      "email": "contact@kinzasyednutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 1500,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "32",
+      "name": "Assoc. Prof. Dr. Imran Aftab",
+      "qualification": "MBBS, M. Phil (Physiology), M. Sc. (Community Health and Nutrition).PhD Scholar",
+      "specialization": "Diet For Kids, Aging And Ailing People, Weight Loss Management",
+      "experience": "11 Yrs",
+      "city": "Islamabad",
+      "hospitalClinic": "Video Consultation",
+      "about": "Assoc. Prof. Dr. Imran Aftab is a qualified nutritionist with 11 Yrs of experience, specializing in Diet For Kids, Aging And Ailing People.",
+      "rating": 5.0,
+      "totalReviews": 41,
+      "email": "contact@assocprofdrimranaftabnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 3000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "33",
+      "name": "Assoc. Prof. Dr Abdul Momin Rizwan Ahmad",
+      "qualification": "BSc. (Hons.), M. Phil. (Public Health), Ph.D. Food & Nutrition; B.Ed., M.Ed., Dip. IT., Dip. Human Nutrition & Dietetics; IPPCR (U.S.A.); CPHN (Aus.); RDN (Pak.); CRCP (Pak.); CFSM (Pak.); CHPE (Pak.); FRSPH (U.K.)",
+      "specialization": "Clinical Nutrition, Weight Loss Management, Assessment",
+      "experience": "11 Yrs",
+      "city": "Islamabad",
+      "hospitalClinic": "Video Consultation",
+      "about": "Assoc. Prof. Dr Abdul Momin Rizwan Ahmad is a qualified nutritionist with 11 Yrs of experience, specializing in Clinical Nutrition, Weight Loss Management.",
+      "rating": 4.95,
+      "totalReviews": 69,
+      "email": "contact@assocprofdrabdulmominrizwanahmadnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 3000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "34",
+      "name": "Andleeb Shakoor",
+      "qualification": "Doctor of Dietetics and Nutritional Science , MPhil Human Nutrition and Dietetics",
+      "specialization": "Weight Loss Management, Weight Loss Management, Weight Loss Management",
+      "experience": "3 Yrs",
+      "city": "Islamabad",
+      "hospitalClinic": "Video Consultation",
+      "about": "Andleeb Shakoor is a qualified nutritionist with 3 Yrs of experience, specializing in Weight Loss Management, Weight Loss Management.",
+      "rating": 5.0,
+      "totalReviews": 5,
+      "email": "contact@andleebshakoornutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 1000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "35",
+      "name": "Ayeza Umar",
+      "qualification": "MSc (Food & Nutrition)",
+      "specialization": "Weight Loss Management, Sports Nutrition, Eating Disorders",
+      "experience": "9 Yrs",
+      "city": "Islamabad",
+      "hospitalClinic": "Video Consultation",
+      "about": "Ayeza Umar is a qualified nutritionist with 9 Yrs of experience, specializing in Weight Loss Management, Sports Nutrition.",
+      "rating": 5.0,
+      "totalReviews": 22,
+      "email": "contact@ayezaumarnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 2200,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "36",
+      "name": "Dr. Waseem Iqbal",
+      "qualification": "MBBS, MSPH, RMP",
+      "specialization": "Infectious Diseases, Weight Loss, Diabetologist",
+      "experience": "22 Yrs",
+      "city": "Islamabad",
+      "hospitalClinic": "Video Consultation",
+      "about": "Dr. Waseem Iqbal is a qualified nutritionist with 22 Yrs of experience, specializing in Infectious Diseases, Weight Loss.",
+      "rating": 4.9,
+      "totalReviews": 368,
+      "email": "contact@drwaseemiqbalnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 1500,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "37",
+      "name": "Mehreen Nargis",
+      "qualification": "MS (Home Economics) (Food & Nutrition)",
+      "specialization": "Nutrition & Diet Planning",
+      "experience": "12 Yrs",
+      "city": "Islamabad",
+      "hospitalClinic": "Video Consultation",
+      "about": "Mehreen Nargis is a qualified nutritionist with 12 Yrs of experience, specializing in Nutrition & Diet Planning.",
+      "rating": 4.7,
+      "totalReviews": 128,
+      "email": "contact@mehreennargisnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 2000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "38",
+      "name": "Shafaq Bushra Rd",
+      "qualification": "Ms Community Health and Nutrition, PGD Dietetics, MSc Food and Nutrition",
+      "specialization": "Weight Loss Management, Cholesterol /Hypertension, Assessment",
+      "experience": "11 Yrs",
+      "city": "Rawalpindi",
+      "hospitalClinic": "Video Consultation",
+      "about": "Shafaq Bushra Rd is a qualified nutritionist with 11 Yrs of experience, specializing in Weight Loss Management, Cholesterol /Hypertension.",
+      "rating": 4.9,
+      "totalReviews": 126,
+      "email": "contact@shafaqbushrardnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 1000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "39",
+      "name": "Dr. Naeem Akram",
+      "qualification": "PhD (Dietetics and Nutritionist)",
+      "specialization": "Nutrition & Diet Planning",
+      "experience": "16 Yrs",
+      "city": "Rawalpindi",
+      "hospitalClinic": "Video Consultation",
+      "about": "Dr. Naeem Akram is a qualified nutritionist with 16 Yrs of experience, specializing in Nutrition & Diet Planning.",
+      "rating": 4.8,
+      "totalReviews": 128,
+      "email": "contact@drnaeemakramnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 2000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "40",
+      "name": "Assoc. Prof. Dr. Imran Aftab",
+      "qualification": "MBBS, M. Phil (Physiology), M. Sc. (Community Health and Nutrition).PhD Scholar",
+      "specialization": "Diet For Kids, Aging And Ailing People, Weight Loss Management",
+      "experience": "11 Yrs",
+      "city": "Rawalpindi",
+      "hospitalClinic": "Video Consultation",
+      "about": "Assoc. Prof. Dr. Imran Aftab is a qualified nutritionist with 11 Yrs of experience, specializing in Diet For Kids, Aging And Ailing People.",
+      "rating": 5.0,
+      "totalReviews": 41,
+      "email": "contact@assocprofdrimranaftabnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 3000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "23242",
+      "name": "Rd. Bareera Najeeb",
+      "qualification": "Rs. 500",
+      "specialization": "Online, Online, Online",
+      "experience": "4.9/5",
+      "city": "Rawalpindi",
+      "hospitalClinic": "Video Consultation",
+      "about": "Rd. Bareera Najeeb is a qualified nutritionist with 4.9/5 of experience, specializing in Online, Online.",
+      "rating": 4.5,
+      "totalReviews": 38,
+      "email": "contact@rdbareeranajeebnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 2000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "42",
+      "name": "Aneela Qureshi",
+      "qualification": "PhD Scholar (Food and Nutrition) MS Hons (Food and Nutrition), BS (Food Science & Technology)",
+      "specialization": "Diet Counselling, Metabolic Syndrome, Weight Management",
+      "experience": "2 Yrs",
+      "city": "Rawalpindi",
+      "hospitalClinic": "Video Consultation",
+      "about": "Aneela Qureshi is a qualified nutritionist with 2 Yrs of experience, specializing in Diet Counselling, Metabolic Syndrome.",
+      "rating": 5.0,
+      "totalReviews": 7,
+      "email": "contact@aneelaqureshinutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 1500,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "43",
+      "name": "Faseeha Aman",
+      "qualification": "BSc (Hons), MS (Human Nutrition and Dietetics)",
+      "specialization": "Nutrition & Diet Planning",
+      "experience": "2 Yrs",
+      "city": "Rawalpindi",
+      "hospitalClinic": "Video Consultation",
+      "about": "Faseeha Aman is a qualified nutritionist with 2 Yrs of experience, specializing in Nutrition & Diet Planning.",
+      "rating": 5.0,
+      "totalReviews": 11,
+      "email": "contact@faseehaamannutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 600,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "44",
+      "name": "Ms. Nida Mughal",
+      "qualification": "Msc (Hons) Human Nutrition Dietetics",
+      "specialization": "Weight Loss Management, Weight Loss Management, Weight Loss Management",
+      "experience": "3 Yrs",
+      "city": "Rawalpindi",
+      "hospitalClinic": "Video Consultation",
+      "about": "Ms. Nida Mughal is a qualified nutritionist with 3 Yrs of experience, specializing in Weight Loss Management, Weight Loss Management.",
+      "rating": 5.0,
+      "totalReviews": 2,
+      "email": "contact@msnidamughalnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 1500,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "45",
+      "name": "Ms. Zainab Ejaz",
+      "qualification": "BS Hons (Home Nutritionist)",
+      "specialization": "Diet Counselling, Metabolic Syndrome, Weight Management",
+      "experience": "2 Yrs",
+      "city": "Rawalpindi",
+      "hospitalClinic": "Video Consultation",
+      "about": "Ms. Zainab Ejaz is a qualified nutritionist with 2 Yrs of experience, specializing in Diet Counselling, Metabolic Syndrome.",
+      "rating": 4.5,
+      "totalReviews": 47,
+      "email": "contact@mszainabejaznutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 2000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    }
+  ],
+  "last_updated": "2025-03-15T23:30:50.342173",
+  "total_count": 45
+}
