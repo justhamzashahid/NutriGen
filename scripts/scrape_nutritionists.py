@@ -13,6 +13,10 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import TimeoutException, NoSuchElementException, StaleElementReferenceException
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium import webdriver
+from selenium.webdriver.edge.options import Options as EdgeOptions
+from selenium.webdriver.edge.service import Service as EdgeService
+from selenium.webdriver.support.ui import WebDriverWait
 try:
     import undetected_chromedriver as uc
     USE_UNDETECTED = True
@@ -34,6 +38,7 @@ class MarhamScraper:
         self.base_url = "https://www.marham.pk"
         self.cities = ["karachi", "lahore", "islamabad", "rawalpindi"]
         self.nutritionists = []
+
         self.user_agents = [
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.4 Safari/605.1.15",
@@ -41,63 +46,25 @@ class MarhamScraper:
             "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0"
         ]
-        
-        # Setup Chrome options
-        logger.info("Setting up Chrome options...")
-        
-        # Initialize webdriver with undetected_chromedriver if available
-        try:
-            if USE_UNDETECTED:
-                options = uc.ChromeOptions()
-                options.add_argument("--window-size=1920,1080")
-                options.add_argument("--disable-notifications")
-                
-                # Randomize user agent
-                random_user_agent = random.choice(self.user_agents)
-                logger.info(f"Using user agent: {random_user_agent}")
-                options.add_argument(f"user-agent={random_user_agent}")
-                
-                self.driver = uc.Chrome(options=options)
-                self.wait = WebDriverWait(self.driver, 30)
-                logger.info("Undetected ChromeDriver initialized successfully")
-            else:
-                chrome_options = Options()
-                chrome_options.add_argument("--disable-gpu")
-                chrome_options.add_argument("--no-sandbox")
-                chrome_options.add_argument("--disable-dev-shm-usage")
-                chrome_options.add_argument("--window-size=1920,1080")
-                chrome_options.add_argument("--disable-extensions")
-                chrome_options.add_argument("--disable-notifications")
-                
-                # Randomize user agent
-                random_user_agent = random.choice(self.user_agents)
-                logger.info(f"Using user agent: {random_user_agent}")
-                chrome_options.add_argument(f"user-agent={random_user_agent}")
-                
-                # Avoid detection
-                chrome_options.add_experimental_option('excludeSwitches', ['enable-automation'])
-                chrome_options.add_experimental_option('useAutomationExtension', False)
-                
-                self.driver = webdriver.Chrome(
-                    service=Service(ChromeDriverManager().install()),
-                    options=chrome_options
-                )
-                self.wait = WebDriverWait(self.driver, 30)
-                logger.info("Regular ChromeDriver initialized successfully")
-                
-                # Execute stealth JS script to prevent detection
-                self.driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
-                    "source": """
-                    Object.defineProperty(navigator, 'webdriver', {
-                        get: () => undefined
-                    });
-                    window.navigator.chrome = { runtime: {} };
-                    """
-                })
-                
-        except Exception as e:
-            logger.error(f"Error initializing WebDriver: {str(e)}")
-            raise
+
+        logger.info("Setting up Edge options...")
+
+        options = EdgeOptions()
+        options.add_argument("--start-maximized")
+        options.add_argument("--disable-notifications")
+
+        # Optional: Use random user agent
+        random_user_agent = random.choice(self.user_agents)
+        logger.info(f"Using user agent: {random_user_agent}")
+        options.add_argument(f"user-agent={random_user_agent}")
+
+        # Optional: run headless
+        # options.add_argument("--headless=new")
+
+        self.driver = webdriver.Edge(service=EdgeService(), options=options)
+        self.wait = WebDriverWait(self.driver, 30)
+
+        logger.info("Microsoft Edge WebDriver initialized successfully")
 
     def add_random_delay(self, min_seconds=1, max_seconds=3):
         """Add random delay to mimic human behavior"""

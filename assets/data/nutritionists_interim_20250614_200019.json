@@ -1,0 +1,436 @@
+{
+  "nutritionists": [
+    {
+      "id": "1",
+      "name": "Ms Aroosa Touseef",
+      "qualification": "DDNS",
+      "specialization": "Kidney Stones, Weight Loss Management, Diet Plan For Diabetes",
+      "experience": "4 Yrs",
+      "city": "Lahore",
+      "hospitalClinic": "Video Consultation",
+      "about": "Ms Aroosa Touseef is a qualified nutritionist with 4 Yrs of experience, specializing in Kidney Stones, Weight Loss Management.",
+      "rating": 4.9,
+      "totalReviews": 2753,
+      "email": "contact@msaroosatouseefnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 2000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "2",
+      "name": "Dr. Ibraheem Naeem",
+      "qualification": "MBBS, MD (USA), DipHM, PgCert in Aesthetics (UK), PgCert in Nutrition (USA)",
+      "specialization": "Nutrition & Diet Planning",
+      "experience": "10 Yrs",
+      "city": "Lahore",
+      "hospitalClinic": "Video Consultation",
+      "about": "Dr. Ibraheem Naeem is a qualified nutritionist with 10 Yrs of experience, specializing in Nutrition & Diet Planning.",
+      "rating": 3.25,
+      "totalReviews": 13,
+      "email": "contact@dribraheemnaeemnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 2000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "3",
+      "name": "Ms. Fakeeha Maryam",
+      "qualification": "M.Phil (Food & Nutrition)",
+      "specialization": "Weight Loss Management, Cholesterol /Hypertension, Diet Plan For Diabetes",
+      "experience": "10 Yrs",
+      "city": "Lahore",
+      "hospitalClinic": "Video Consultation",
+      "about": "Ms. Fakeeha Maryam is a qualified nutritionist with 10 Yrs of experience, specializing in Weight Loss Management, Cholesterol /Hypertension.",
+      "rating": 4.75,
+      "totalReviews": 124,
+      "email": "contact@msfakeehamaryamnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 1500,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "23242",
+      "name": "Dr. Muhammad Zeeshan",
+      "qualification": "Rs. 500",
+      "specialization": "Online, Online, Online",
+      "experience": "4.9/5",
+      "city": "Lahore",
+      "hospitalClinic": "Video Consultation",
+      "about": "Dr. Muhammad Zeeshan is a qualified nutritionist with 4.9/5 of experience, specializing in Online, Online.",
+      "rating": 4.5,
+      "totalReviews": 30,
+      "email": "contact@drmuhammadzeeshannutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 2000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "5",
+      "name": "Ms Sabahat Zubair Rd",
+      "qualification": "BSc (Food & Nutrition), MSc (Food & Nutrition), RDD",
+      "specialization": "Diet Counselling, Weight Management, Renal Disease (hemodialysis)",
+      "experience": "13 Yrs",
+      "city": "Lahore",
+      "hospitalClinic": "Video Consultation",
+      "about": "Ms Sabahat Zubair Rd is a qualified nutritionist with 13 Yrs of experience, specializing in Diet Counselling, Weight Management.",
+      "rating": 4.8,
+      "totalReviews": 402,
+      "email": "contact@mssabahatzubairrdnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 2500,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "6",
+      "name": "Ms. Zoha Hassan",
+      "qualification": "Doctor of Dietetics & Nutritional Sciences",
+      "specialization": "Weight Loss Management, Cholesterol /Hypertension, Assessment",
+      "experience": "4 Yrs",
+      "city": "Lahore",
+      "hospitalClinic": "Video Consultation",
+      "about": "Ms. Zoha Hassan is a qualified nutritionist with 4 Yrs of experience, specializing in Weight Loss Management, Cholesterol /Hypertension.",
+      "rating": 5.0,
+      "totalReviews": 7,
+      "email": "contact@mszohahassannutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 1500,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "7",
+      "name": "Dr. Wajeeha Sultana",
+      "qualification": "Bs.Hons, M.phil.Human Nutrition and Dietetics, PhD Scholar (Human Nutrition and Dietetics)",
+      "specialization": "Sports/ Gym Nutrition, Obesity, Diet Plans Regarding Diabetes/Hypertension/ Cardiovascular Disease",
+      "experience": "11 Yrs",
+      "city": "Lahore",
+      "hospitalClinic": "Video Consultation",
+      "about": "Dr. Wajeeha Sultana is a qualified nutritionist with 11 Yrs of experience, specializing in Sports/ Gym Nutrition, Obesity.",
+      "rating": 5.0,
+      "totalReviews": 42,
+      "email": "contact@drwajeehasultananutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 2500,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "8",
+      "name": "Dr. Tasneem Kausar",
+      "qualification": "MBBS, Certified Nutritionist, Hijama Certified",
+      "specialization": "Nutrition & Diet Planning",
+      "experience": "12 Yrs",
+      "city": "Lahore",
+      "hospitalClinic": "Video Consultation",
+      "about": "Dr. Tasneem Kausar is a qualified nutritionist with 12 Yrs of experience, specializing in Nutrition & Diet Planning.",
+      "rating": 5.0,
+      "totalReviews": 59,
+      "email": "contact@drtasneemkausarnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 1500,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "9",
+      "name": "Rida Amir",
+      "qualification": "BS (Food and Nutrition) Mphil in food nutrition",
+      "specialization": "Metabolic Disorders, Metabolic Disorders, Metabolic Disorders",
+      "experience": "2.5 Yrs",
+      "city": "Lahore",
+      "hospitalClinic": "Video Consultation",
+      "about": "Rida Amir is a qualified nutritionist with 2.5 Yrs of experience, specializing in Metabolic Disorders, Metabolic Disorders.",
+      "rating": 5.0,
+      "totalReviews": 6,
+      "email": "contact@ridaamirnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 800,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    },
+    {
+      "id": "10",
+      "name": "Dr. Asem Jawaid",
+      "qualification": "MBBS, MSc Human Nutrition & Dietetics, Certified Sports Nutritionist, ISSA Certified Personal Trainer",
+      "specialization": "Weight Loss Management, Cholesterol /Hypertension, Assessment",
+      "experience": "8 Yrs",
+      "city": "Lahore",
+      "hospitalClinic": "Video Consultation",
+      "about": "Dr. Asem Jawaid is a qualified nutritionist with 8 Yrs of experience, specializing in Weight Loss Management, Cholesterol /Hypertension.",
+      "rating": 4.7,
+      "totalReviews": 144,
+      "email": "contact@drasemjawaidnutrition.com",
+      "phone": "Contact via Marham.pk",
+      "consultationFee": 3000,
+      "availableDays": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "availableTimeSlots": {
+        "Monday": [
+          "10:00 AM",
+          "2:00 PM",
+          "4:00 PM"
+        ],
+        "Wednesday": [
+          "11:00 AM",
+          "3:00 PM",
+          "5:00 PM"
+        ],
+        "Friday": [
+          "9:00 AM",
+          "1:00 PM",
+          "3:00 PM"
+        ]
+      },
+      "languages": [
+        "English",
+        "Urdu"
+      ],
+      "reviews": [],
+      "imageUrl": "assets/images/avatar.png"
+    }
+  ],
+  "last_updated": "2025-06-14T20:00:19.342593",
+  "total_count": 10
+}
