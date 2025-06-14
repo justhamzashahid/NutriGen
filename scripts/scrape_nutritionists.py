@@ -14,8 +14,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException, StaleElementReferenceException
 
-from msedge.selenium_tools import Edge, EdgeOptions  # Legacy support
-from selenium.webdriver.edge.service import Service as EdgeService
+from selenium.webdriver import Edge
+from selenium.webdriver.edge.options import Options as EdgeOptions
+from selenium.webdriver.edge.service import Service as EdgeService # Legacy support
 
 # ✅ Informative log
 print("Using Microsoft Edge WebDriver")
