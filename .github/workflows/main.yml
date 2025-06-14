@@ -17,7 +17,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.10'  # ✅ Use 3.10 to avoid version conflicts
+        python-version: '3.10'  # ✅ Compatible with most libraries
 
     - name: Install dependencies
       run: |
@@ -25,4 +25,4 @@ jobs:
         pip install -r scripts/requirements.txt
 
     - name: Run the scraper
-      run: python scripts/scraper.py  # Replace with your actual script filename
+      run: python scripts/scrape_nutritionists.py 1
