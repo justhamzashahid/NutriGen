@@ -14,25 +14,26 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException, StaleElementReferenceException
 
+import tempfile
+
 from selenium.webdriver import Edge
 from selenium.webdriver.edge.options import Options as EdgeOptions
-from selenium.webdriver.edge.service import Service as EdgeService # Legacy support
+from selenium.webdriver.edge.service import Service as EdgeService
 
-# ✅ Informative log
-print("Using Microsoft Edge WebDriver")
-
-# ✅ Edge options setup
+# Set up Edge options
 options = EdgeOptions()
 options.use_chromium = True
-options.add_argument("--headless")  # Comment this out if you want to see the browser UI
+options.add_argument("--headless")  # Optional for CI
 options.add_argument("--disable-gpu")
 options.add_argument("--window-size=1920,1080")
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
-options.add_argument(f"--user-data-dir={tempfile.mkdtemp()}")  # Prevent session conflicts
-options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0")
 
-# ✅ Launch Edge driver
+# ✅ Use a unique user data dir every time
+temp_user_data_dir = tempfile.mkdtemp()
+options.add_argument(f"--user-data-dir={temp_user_data_dir}")
+
+# Set up Edge WebDriver
 driver = Edge(service=EdgeService(), options=options)
 
 # Example usage (replace in your actual class/methods)
@@ -892,3 +893,8 @@ if __name__ == "__main__":
 if __name__ == "__main__":
     scraper = MarhamScraper()
     scraper.scrape()
+import shutil
+
+# At the very end of your script
+driver.quit()
+shutil.rmtree(temp_user_data_dir, ignore_errors=True)
