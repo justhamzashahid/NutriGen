@@ -4,29 +4,38 @@ import os
 import random
 import logging
 import requests
+import tempfile
 from datetime import datetime, timedelta
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import TimeoutException, NoSuchElementException, StaleElementReferenceException
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium import webdriver
-from selenium.webdriver.edge.options import Options as EdgeOptions
-from selenium.webdriver.edge.service import Service as EdgeService
-from selenium.webdriver.support.ui import WebDriverWait
-try:
-    import undetected_chromedriver as uc
-    USE_UNDETECTED = True
-    print("Using undetected_chromedriver")
-except ImportError:
-    from webdriver_manager.chrome import ChromeDriverManager
-    USE_UNDETECTED = False
-    print("Using regular chromedriver - install undetected_chromedriver for better results")
-    print("pip install undetected-chromedriver")
 
+from msedge.selenium_tools import Edge, EdgeOptions  # Legacy support
+from selenium.webdriver.edge.service import Service as EdgeService
+
+# ✅ Informative log
+print("Using Microsoft Edge WebDriver")
+
+# ✅ Edge options setup
+options = EdgeOptions()
+options.use_chromium = True
+options.add_argument("--headless")  # Comment this out if you want to see the browser UI
+options.add_argument("--disable-gpu")
+options.add_argument("--window-size=1920,1080")
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+options.add_argument(f"--user-data-dir={tempfile.mkdtemp()}")  # Prevent session conflicts
+options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0")
+
+# ✅ Launch Edge driver
+driver = Edge(service=EdgeService(), options=options)
+
+# Example usage (replace in your actual class/methods)
+# self.driver = driver
 # Set up logging
 logging.basicConfig(level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s',
