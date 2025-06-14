@@ -894,10 +894,9 @@ if __name__ == "__main__":
             scraper.scrape_with_single_city(0)
 
 if __name__ == "__main__":
+    print("Using Microsoft Edge WebDriver")
     scraper = MarhamScraper()
-    scraper.scrape()
-import shutil
+    scraper.scrape_with_single_city(1)
 
-# At the very end of your script
-driver.quit()
-shutil.rmtree(temp_user_data_dir, ignore_errors=True)
+    # Close the browser session properly
+    scraper.close()
