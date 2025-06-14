@@ -5,6 +5,7 @@ import random
 import logging
 import requests
 import tempfile
+import shutil
 from datetime import datetime, timedelta
 
 from selenium import webdriver
@@ -14,30 +15,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException, StaleElementReferenceException
 
-import tempfile
-
 from selenium.webdriver import Edge
 from selenium.webdriver.edge.options import Options as EdgeOptions
 from selenium.webdriver.edge.service import Service as EdgeService
 
-# Set up Edge options
-options = EdgeOptions()
-options.use_chromium = True
-options.add_argument("--headless")  # Optional for CI
-options.add_argument("--disable-gpu")
-options.add_argument("--window-size=1920,1080")
-options.add_argument("--no-sandbox")
-options.add_argument("--disable-dev-shm-usage")
-
-# ✅ Use a unique user data dir every time
-temp_user_data_dir = tempfile.mkdtemp()
-options.add_argument(f"--user-data-dir={temp_user_data_dir}")
-
-# Set up Edge WebDriver
-driver = Edge(service=EdgeService(), options=options)
-
-# Example usage (replace in your actual class/methods)
-# self.driver = driver
 # Set up logging
 logging.basicConfig(level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s',
@@ -49,6 +30,7 @@ class MarhamScraper:
         self.base_url = "https://www.marham.pk"
         self.cities = ["karachi", "lahore", "islamabad", "rawalpindi"]
         self.nutritionists = []
+        self.temp_user_data_dir = None
 
         self.user_agents = [
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
@@ -60,22 +42,57 @@ class MarhamScraper:
 
         logger.info("Setting up Edge options...")
 
+        # Set up Edge options
         options = EdgeOptions()
-        options.add_argument("--start-maximized")
+        options.use_chromium = True
+        options.add_argument("--headless")  # Required for CI/CD
+        options.add_argument("--disable-gpu")
+        options.add_argument("--window-size=1920,1080")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
         options.add_argument("--disable-notifications")
+        options.add_argument("--disable-popup-blocking")
+        options.add_argument("--disable-extensions")
+        options.add_argument("--disable-plugins")
+        options.add_argument("--disable-images")  # Speed up loading
+        options.add_argument("--disable-javascript")  # Only if the content doesn't rely on JS
+        
+        # Create a unique user data dir every time
+        self.temp_user_data_dir = tempfile.mkdtemp()
+        options.add_argument(f"--user-data-dir={self.temp_user_data_dir}")
 
         # Optional: Use random user agent
         random_user_agent = random.choice(self.user_agents)
         logger.info(f"Using user agent: {random_user_agent}")
         options.add_argument(f"user-agent={random_user_agent}")
 
-        # Optional: run headless
-        # options.add_argument("--headless=new")
+        try:
+            self.driver = webdriver.Edge(service=EdgeService(), options=options)
+            self.wait = WebDriverWait(self.driver, 30)
+            logger.info("Microsoft Edge WebDriver initialized successfully")
+        except Exception as e:
+            logger.error(f"Failed to initialize WebDriver: {str(e)}")
+            # Clean up temp directory if driver creation fails
+            if self.temp_user_data_dir and os.path.exists(self.temp_user_data_dir):
+                shutil.rmtree(self.temp_user_data_dir, ignore_errors=True)
+            raise
 
-        self.driver = webdriver.Edge(service=EdgeService(), options=options)
-        self.wait = WebDriverWait(self.driver, 30)
-
-        logger.info("Microsoft Edge WebDriver initialized successfully")
+    def cleanup(self):
+        """Clean up resources"""
+        try:
+            if hasattr(self, 'driver') and self.driver:
+                self.driver.quit()
+                logger.info("WebDriver closed successfully")
+        except Exception as e:
+            logger.error(f"Error closing WebDriver: {str(e)}")
+        
+        # Clean up temp user data directory
+        if self.temp_user_data_dir and os.path.exists(self.temp_user_data_dir):
+            try:
+                shutil.rmtree(self.temp_user_data_dir, ignore_errors=True)
+                logger.info("Temporary user data directory cleaned up")
+            except Exception as e:
+                logger.error(f"Error cleaning up temp directory: {str(e)}")
 
     def add_random_delay(self, min_seconds=1, max_seconds=3):
         """Add random delay to mimic human behavior"""
@@ -582,26 +599,12 @@ class MarhamScraper:
             self.driver.save_screenshot(f"captcha_detected_{int(time.time())}.png")
             
             print("\n" + "="*80)
-            print(f"CAPTCHA detected! Please solve it manually in the browser window.")
-            print("The script will wait for 60 seconds to give you time to solve it.")
+            print(f"CAPTCHA detected! This may indicate anti-bot measures.")
+            print("In CI/CD environment, continuing with reduced functionality.")
             print("="*80 + "\n")
             
-            # Wait for the user to solve the CAPTCHA
-            time.sleep(60)
-            
-            # Check if still on CAPTCHA page
-            new_page_source = self.driver.page_source.lower()
-            if any(all(word in new_page_source for word in phrase) for phrase in captcha_phrases):
-                print("\nStill detecting CAPTCHA. Waiting 30 more seconds...")
-                time.sleep(30)
-                
-                # Final check
-                if any(all(word in self.driver.page_source.lower() for word in phrase) for phrase in captcha_phrases):
-                    print("\nCAPTCHA still not solved. Taking screenshot and continuing...")
-                    self.driver.save_screenshot(f"captcha_still_present_{int(time.time())}.png")
-                    return False
-            
-            logger.info("CAPTCHA appears to be solved, continuing...")
+            # In CI/CD, we can't solve CAPTCHAs manually, so return False
+            return False
         
         return True
 
