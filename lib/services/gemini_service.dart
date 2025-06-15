@@ -15,6 +15,76 @@ class GeminiService {
   factory GeminiService() => _instance;
   GeminiService._internal();
 
+  /// Direct call to Gemini API for general text processing
+  Future<String> callGeminiApi(String prompt) async {
+    try {
+      final url = '$_baseApiUrl/$_modelName:generateContent?key=$_apiKey';
+
+      final requestBody = {
+        'contents': [
+          {
+            'parts': [
+              {'text': prompt},
+            ],
+          },
+        ],
+        'generationConfig': {
+          'temperature': 0.1,
+          'topK': 1,
+          'topP': 1,
+          'maxOutputTokens': 2048,
+          'stopSequences': [],
+        },
+        'safetySettings': [
+          {
+            'category': 'HARM_CATEGORY_HARASSMENT',
+            'threshold': 'BLOCK_MEDIUM_AND_ABOVE',
+          },
+          {
+            'category': 'HARM_CATEGORY_HATE_SPEECH',
+            'threshold': 'BLOCK_MEDIUM_AND_ABOVE',
+          },
+          {
+            'category': 'HARM_CATEGORY_SEXUALLY_EXPLICIT',
+            'threshold': 'BLOCK_MEDIUM_AND_ABOVE',
+          },
+          {
+            'category': 'HARM_CATEGORY_DANGEROUS_CONTENT',
+            'threshold': 'BLOCK_MEDIUM_AND_ABOVE',
+          },
+        ],
+      };
+
+      final response = await http.post(
+        Uri.parse(url),
+        headers: {'Content-Type': 'application/json'},
+        body: json.encode(requestBody),
+      );
+
+      if (response.statusCode == 200) {
+        final responseData = json.decode(response.body);
+
+        if (responseData['candidates'] != null &&
+            responseData['candidates'].isNotEmpty &&
+            responseData['candidates'][0]['content'] != null &&
+            responseData['candidates'][0]['content']['parts'] != null &&
+            responseData['candidates'][0]['content']['parts'].isNotEmpty) {
+          return responseData['candidates'][0]['content']['parts'][0]['text'];
+        } else {
+          throw Exception('Invalid response structure from Gemini API');
+        }
+      } else {
+        debugPrint(
+          'Gemini API error: ${response.statusCode} - ${response.body}',
+        );
+        throw Exception('Gemini API request failed: ${response.statusCode}');
+      }
+    } catch (e) {
+      debugPrint('Error calling Gemini API: $e');
+      throw Exception('Failed to process with Gemini: $e');
+    }
+  }
+
   Future<Map<String, dynamic>> refineMealPlanForDashboard(
     String mealPlanResponse,
   ) async {
@@ -64,8 +134,7 @@ Here's the meal plan:
 $mealPlanResponse
 """;
 
-      final response = await _callGeminiApi(prompt);
-
+      final response = await callGeminiApi(prompt);
       String jsonStr = _extractJsonFromResponse(response);
 
       try {
@@ -86,77 +155,43 @@ $mealPlanResponse
       final prompt = """
 Beautify the following meal plan for display in a chatbot. Remove any markdown or HTML tags, format it nicely with emojis for food items, and maintain all the nutritional information.
 
-Here's the meal plan:
+Keep the structure clear with proper headings for Breakfast, Lunch, Dinner, and Snacks.
+Add appropriate food emojis (🥗 🍗 🥕 🍎 etc.) to make it visually appealing.
+Keep all nutritional details and explanations.
+
+Original meal plan:
 $mealPlanResponse
+
+Return the beautified version:
 """;
 
-      return await _callGeminiApi(prompt);
+      final response = await callGeminiApi(prompt);
+      return response.trim();
     } catch (e) {
       debugPrint('Error beautifying meal plan: $e');
-      throw Exception('Failed to beautify meal plan: $e');
-    }
-  }
-
-  Future<String> _callGeminiApi(String prompt) async {
-    try {
-      final requestBody = {
-        'contents': [
-          {
-            'parts': [
-              {'text': prompt},
-            ],
-          },
-        ],
-        'generationConfig': {
-          'temperature': 0.2,
-          'topK': 40,
-          'topP': 0.95,
-          'maxOutputTokens': 1024,
-        },
-      };
-
-      final apiUrl = '$_baseApiUrl/$_modelName:generateContent?key=$_apiKey';
-
-      final response = await http.post(
-        Uri.parse(apiUrl),
-        headers: {'Content-Type': 'application/json'},
-        body: json.encode(requestBody),
-      );
-
-      if (response.statusCode == 200) {
-        final Map<String, dynamic> data = json.decode(response.body);
-
-        if (data['candidates'] != null &&
-            data['candidates'].isNotEmpty &&
-            data['candidates'][0]['content'] != null &&
-            data['candidates'][0]['content']['parts'] != null &&
-            data['candidates'][0]['content']['parts'].isNotEmpty) {
-          return data['candidates'][0]['content']['parts'][0]['text'];
-        } else {
-          throw Exception(
-            'Unexpected Gemini API response structure: ${response.body}',
-          );
-        }
-      } else {
-        throw Exception(
-          'Gemini API request failed with status: ${response.statusCode}, error: ${response.body}',
-        );
-      }
-    } catch (e) {
-      debugPrint('Error calling Gemini API: $e');
-      throw Exception('Failed to communicate with Gemini API: $e');
+      // Return original if beautification fails
+      return mealPlanResponse;
     }
   }
 
   String _extractJsonFromResponse(String response) {
-    final RegExp jsonRegex = RegExp(r'\{[\s\S]*\}');
-    final match = jsonRegex.firstMatch(response);
-
-    if (match != null) {
-      return match.group(0) ?? response;
+    // Try to find JSON content in the response
+    final jsonMatch = RegExp(r'\{[\s\S]*\}').firstMatch(response);
+    if (jsonMatch != null) {
+      return jsonMatch.group(0)!;
     }
 
-    throw Exception('Could not extract valid JSON from Gemini response');
+    // If no JSON found, try to extract content between code blocks
+    final codeBlockMatch = RegExp(
+      r'```(?:json)?\s*(\{[\s\S]*?\})\s*```',
+      caseSensitive: false,
+    ).firstMatch(response);
+    if (codeBlockMatch != null) {
+      return codeBlockMatch.group(1)!;
+    }
+
+    // If still no JSON, return the response as-is and let json.decode handle the error
+    return response;
   }
 
   Future<void> saveTodaysMealPlan(
@@ -165,7 +200,6 @@ $mealPlanResponse
   ) async {
     try {
       await _apiClient.post('/meal-plans/today', mealPlan);
-
       debugPrint('Meal plan saved to backend successfully for user: $userId');
     } catch (e) {
       debugPrint('Error saving meal plan to backend: $e');
@@ -220,7 +254,7 @@ Return ONLY a JSON object with the following structure:
 Food item: $foodDescription
 """;
 
-      final response = await _callGeminiApi(prompt);
+      final response = await callGeminiApi(prompt);
       debugPrint('Gemini food analysis response: $response');
 
       String jsonStr = _extractJsonFromResponse(response);

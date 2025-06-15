@@ -20,11 +20,12 @@ class VerificationCodeScreen extends StatefulWidget {
 }
 
 class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
+  // FIXED: Changed from 5 to 6 digits
   final List<TextEditingController> _controllers = List.generate(
-    5,
+    6,
     (index) => TextEditingController(),
   );
-  final List<FocusNode> _focusNodes = List.generate(5, (index) => FocusNode());
+  final List<FocusNode> _focusNodes = List.generate(6, (index) => FocusNode());
   final _authService = AuthService();
   bool _isLoading = false;
 
@@ -43,7 +44,8 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
     String enteredCode =
         _controllers.map((controller) => controller.text).join();
 
-    if (enteredCode.length != 5) {
+    // FIXED: Changed from 5 to 6 digits
+    if (enteredCode.length != 6) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Please enter the complete verification code'),
@@ -123,10 +125,11 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
   }
 
   void _handleKeypadInput(String input) {
-    for (int i = 0; i < 5; i++) {
+    // FIXED: Changed from 5 to 6 digits
+    for (int i = 0; i < 6; i++) {
       if (_controllers[i].text.isEmpty) {
         _controllers[i].text = input;
-        if (i < 4) {
+        if (i < 5) {
           _focusNodes[i + 1].requestFocus();
         } else {
           _verifyCode();
@@ -137,7 +140,8 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
   }
 
   void _handleBackspace() {
-    for (int i = 4; i >= 0; i--) {
+    // FIXED: Changed from 4 to 5
+    for (int i = 5; i >= 0; i--) {
       if (_controllers[i].text.isNotEmpty) {
         _controllers[i].clear();
         if (i > 0) {
@@ -182,11 +186,11 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
                 ),
                 const SizedBox(height: 32),
 
-                // Verification code input boxes
+                // FIXED: Changed from 5 to 6 verification code input boxes
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: List.generate(
-                    5,
+                    6,
                     (index) => SizedBox(
                       width: 50,
                       height: 50,
@@ -212,7 +216,8 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
                         ),
                         onChanged: (value) {
                           if (value.isNotEmpty) {
-                            if (index < 4) {
+                            // FIXED: Changed from 4 to 5
+                            if (index < 5) {
                               _focusNodes[index + 1].requestFocus();
                             } else {
                               _verifyCode();
@@ -329,23 +334,24 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
                   },
           child:
               isBackspace
-                  ? const Icon(Icons.backspace_outlined, color: Colors.black)
+                  ? const Icon(Icons.backspace, size: 20)
                   : Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         text,
                         style: const TextStyle(
-                          fontSize: 20,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
                           color: Colors.black,
                         ),
                       ),
                       if (subtitle != null)
                         Text(
                           subtitle,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 10,
-                            color: Colors.black.withOpacity(0.6),
+                            color: Colors.black54,
                           ),
                         ),
                     ],

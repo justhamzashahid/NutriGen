@@ -54,15 +54,24 @@ class _SignupScreenState extends State<SignupScreen> {
 
         if (!mounted) return;
 
-        debugPrint('Verification Code: ${response['verificationCode']}');
-        final userId = response['user']['id'];
+        // FIXED: Correct response structure access
+        final verificationCode = response['data']?['verificationCode'];
+        final userId = response['data']?['user']?['id'];
+
+        debugPrint('Verification Code: $verificationCode');
+        debugPrint('User ID: $userId');
+
+        // Validate that we got the required data
+        if (userId == null) {
+          throw Exception('User ID not received from server');
+        }
 
         Navigator.push(
           context,
           MaterialPageRoute(
             builder:
                 (context) => VerificationCodeScreen(
-                  userId: userId,
+                  userId: userId.toString(), // Ensure it's a string
                   mode: 'signup',
                   onVerificationComplete: () {
                     Navigator.pushReplacement(
@@ -78,13 +87,14 @@ class _SignupScreenState extends State<SignupScreen> {
       } catch (e) {
         if (!mounted) return;
 
+        setState(() => _isLoading = false);
+
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(e.toString()), backgroundColor: Colors.red),
+          SnackBar(
+            content: Text('Signup failed: ${e.toString()}'),
+            backgroundColor: Colors.red,
+          ),
         );
-      } finally {
-        if (mounted) {
-          setState(() => _isLoading = false);
-        }
       }
     }
   }
@@ -93,20 +103,30 @@ class _SignupScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.all(24.0),
+          padding: const EdgeInsets.all(24),
           child: Form(
-            // Added Form widget
-            key: _formKey, // Added form key
+            key: _formKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 40),
-                // Join NutriGen heading
+                // Header
                 const Text(
                   'Join NutriGen',
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
                 ),
                 const SizedBox(height: 8),
                 Text(
@@ -125,7 +145,6 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
                 const SizedBox(height: 8),
                 TextFormField(
-                  // Changed to TextFormField
                   controller: _nameController,
                   decoration: InputDecoration(
                     hintText: 'Enter your name',
@@ -152,7 +171,6 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
                 const SizedBox(height: 8),
                 TextFormField(
-                  // Changed to TextFormField
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
@@ -185,7 +203,6 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
                 const SizedBox(height: 8),
                 TextFormField(
-                  // Changed to TextFormField
                   controller: _passwordController,
                   obscureText: _obscurePassword,
                   decoration: InputDecoration(
@@ -229,7 +246,6 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
                 const SizedBox(height: 8),
                 TextFormField(
-                  // Changed to TextFormField
                   controller: _confirmPasswordController,
                   obscureText: _obscureConfirmPassword,
                   decoration: InputDecoration(
@@ -280,41 +296,36 @@ class _SignupScreenState extends State<SignupScreen> {
                             height: 20,
                             width: 20,
                             child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                Colors.white,
-                              ),
+                              color: Colors.white,
                               strokeWidth: 2,
                             ),
                           )
                           : const Text(
-                            'Sign up',
+                            'Sign Up',
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                 ),
-                const SizedBox(height: 24),
+                const SizedBox(height: 16),
 
-                // Already have an account
+                // Login Link
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Already have an account?',
+                      'Already have an account? ',
                       style: TextStyle(color: Colors.grey[600]),
                     ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      style: TextButton.styleFrom(
-                        foregroundColor: const Color(0xFFCC1C14),
-                        padding: const EdgeInsets.only(left: 4),
-                      ),
+                    GestureDetector(
+                      onTap: () => Navigator.pop(context),
                       child: const Text(
                         'Log in',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          color: Color(0xFFCC1C14),
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ],

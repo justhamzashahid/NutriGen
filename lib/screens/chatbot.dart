@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nutrigen/services/model_service.dart';
-import 'package:nutrigen/services/profile_service.dart';
 import 'package:nutrigen/services/gemini_service.dart';
+import 'package:nutrigen/services/profile_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 
@@ -13,334 +13,242 @@ class AIChatbotScreen extends StatefulWidget {
 }
 
 class _AIChatbotScreenState extends State<AIChatbotScreen> {
-  final ModelService _modelService = ModelService();
-  final ProfileService _profileService = ProfileService();
-  final GeminiService _geminiService = GeminiService();
   final TextEditingController _messageController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
+  final ModelService _modelService = ModelService();
+  final GeminiService _geminiService = GeminiService();
+  final ProfileService _profileService = ProfileService();
 
   List<Map<String, dynamic>> _messages = [];
   bool _isLoading = false;
-  bool _isApiAvailable = false;
-  String? _geneMarker;
-  String? _age;
-  String? _gender;
-  List<String>? _healthGoals;
-  List<String>? _dietPreferences;
-  List<String>? _allergies;
-  String? _userId;
-
-  // Track if we're showing the meal plan acceptance UI
   bool _showMealPlanAcceptance = false;
-  String _currentMealPlanResponse = '';
+  String? _pendingMealPlan;
+  String? _userId;
+  String? _geneMarker;
+  Map<String, dynamic>? _userProfile;
 
   @override
   void initState() {
     super.initState();
-    _getUserId();
-    _checkApiAvailability();
-    _loadUserProfile();
+    _initializeChat();
   }
 
-  Future<void> _getUserId() async {
-    final prefs = await SharedPreferences.getInstance();
-    setState(() {
-      _userId = prefs.getString('user_id');
-    });
-    debugPrint('User ID loaded: $_userId');
-    _loadChatHistory();
+  @override
+  void dispose() {
+    _messageController.dispose();
+    _scrollController.dispose();
+    super.dispose();
   }
 
-  Future<void> _checkApiAvailability() async {
-    try {
-      final isAvailable = await _modelService.checkApiAvailability();
-      setState(() {
-        _isApiAvailable = isAvailable;
-      });
-
-      if (!isAvailable) {
-        _showApiUnavailableMessage();
-      }
-    } catch (e) {
-      setState(() {
-        _isApiAvailable = false;
-      });
-      _showApiUnavailableMessage();
-    }
-  }
-
-  void _showApiUnavailableMessage() {
-    setState(() {
-      _messages.add({
-        'isUser': false,
-        'message':
-            'The AI service is currently unavailable. We are working to restore service as soon as possible.',
-      });
-    });
+  Future<void> _initializeChat() async {
+    await _loadUserProfile();
+    await _loadChatHistory();
+    await _checkApiAvailability();
   }
 
   Future<void> _loadUserProfile() async {
     try {
-      final response = await _profileService.getUserProfile();
+      final prefs = await SharedPreferences.getInstance();
+      _userId = prefs.getString('user_id');
+      debugPrint('User ID loaded: $_userId');
 
-      if (response['success'] == true) {
-        final data = response['data'];
+      if (_userId != null) {
+        final response = await _profileService.getUserProfile();
         setState(() {
-          _geneMarker = data['geneMarker'];
-          _age = data['age']?.toString();
-          _gender = data['gender'];
-
-          // Convert lists from dynamic to String
-          if (data['healthGoals'] != null) {
-            _healthGoals = List<String>.from(
-              data['healthGoals'].map((item) => item.toString()),
-            );
-          }
-
-          if (data['dietPreferences'] != null) {
-            _dietPreferences = List<String>.from(
-              data['dietPreferences'].map((item) => item.toString()),
-            );
-          }
-
-          if (data['allergies'] != null) {
-            _allergies = List<String>.from(
-              data['allergies'].map((item) => item.toString()),
-            );
-          }
+          _userProfile = response['data'];
+          _geneMarker = _userProfile?['geneMarker'];
         });
-
-        // Add initial messages only if we don't have chat history
-        if (_messages.isEmpty) {
-          // Add a message about the genetic marker if available
-          if (_geneMarker != null) {
-            _messages.add({
-              'isUser': false,
-              'message':
-                  'I see that you have the $_geneMarker genetic marker in your profile. I\'ll use this to provide personalized nutrition recommendations.',
-            });
-          } else {
-            _messages.add({
-              'isUser': false,
-              'message':
-                  'Hello! I\'m your NutriGen assistant. I can help you with personalized nutrition advice based on your genetic profile. How can I help you today?',
-            });
-          }
-
-          // Check if there's a meal plan for today
-          if (_userId != null) {
-            final todaysMealPlan = await _geminiService.getTodaysMealPlan(
-              _userId!,
-            );
-            if (todaysMealPlan == null) {
-              // No meal plan for today
-              _messages.add({
-                'isUser': false,
-                'message':
-                    'I notice you don\'t have a meal plan for today. Would you like me to generate one for you? Just ask for a meal plan.',
-              });
-            } else {
-              // There's a meal plan for today
-              _messages.add({
-                'isUser': false,
-                'message':
-                    'I see you already have a meal plan for today. You can view it on your dashboard. Let me know if you have any questions about it!',
-              });
-            }
-          }
-        }
+        debugPrint('User profile loaded: $_userProfile');
       }
     } catch (e) {
       debugPrint('Error loading user profile: $e');
     }
   }
 
-  // Save chat history to local storage
-  Future<void> _saveChatHistory() async {
-    try {
-      if (_userId == null) return; // Don't save if no user ID
+  Future<void> _loadChatHistory() async {
+    if (_userId == null) return;
 
+    try {
       final prefs = await SharedPreferences.getInstance();
-      final chatHistory = jsonEncode(_messages);
-      await prefs.setString('chat_history_$_userId', chatHistory);
-      debugPrint('Chat history saved for user: $_userId');
+      final chatHistoryString = prefs.getString('chat_history_$_userId');
+
+      if (chatHistoryString != null) {
+        final List<dynamic> chatHistoryJson = json.decode(chatHistoryString);
+        setState(() {
+          _messages = chatHistoryJson.cast<Map<String, dynamic>>();
+        });
+        debugPrint('Chat history loaded: ${_messages.length} messages');
+      } else {
+        debugPrint(
+          'No chat history found for user $_userId, initialized with welcome message',
+        );
+        _initializeWelcomeMessage();
+      }
+    } catch (e) {
+      debugPrint('Error loading chat history: $e');
+      _initializeWelcomeMessage();
+    }
+  }
+
+  void _initializeWelcomeMessage() {
+    setState(() {
+      _messages = [
+        {
+          'isUser': false,
+          'message':
+              'Hello! I\'m your NutriGen assistant. I can help you with personalized nutrition advice based on your genetic profile. How can I help you today?',
+        },
+      ];
+
+      // Add gene marker info if available
+      if (_geneMarker != null) {
+        _messages.add({
+          'isUser': false,
+          'message':
+              'I see that you have the $_geneMarker genetic marker in your profile. I can provide personalized nutrition recommendations based on this information.',
+        });
+      }
+    });
+
+    _saveChatHistory();
+  }
+
+  Future<void> _saveChatHistory() async {
+    if (_userId == null) return;
+
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final chatHistoryString = json.encode(_messages);
+      await prefs.setString('chat_history_$_userId', chatHistoryString);
     } catch (e) {
       debugPrint('Error saving chat history: $e');
     }
   }
 
-  // Load chat history from local storage
-  Future<void> _loadChatHistory() async {
+  Future<void> _checkApiAvailability() async {
     try {
-      if (_userId == null) return; // Don't load if no user ID
-
-      final prefs = await SharedPreferences.getInstance();
-      final chatHistory = prefs.getString('chat_history_$_userId');
-
-      if (chatHistory != null) {
-        final List<dynamic> decoded = jsonDecode(chatHistory);
+      final isAvailable = await _modelService.checkApiAvailability();
+      if (!isAvailable && mounted) {
         setState(() {
-          _messages =
-              decoded.map((item) => Map<String, dynamic>.from(item)).toList();
+          _messages.add({
+            'isUser': false,
+            'message':
+                'I\'m currently having trouble connecting to my nutrition database. Please try again in a moment, or contact support if the issue persists.',
+          });
         });
-        debugPrint('Chat history loaded for user: $_userId');
-      } else {
-        // Initialize with welcome message if no history
-        setState(() {
-          _messages = [
-            {
-              'isUser': false,
-              'message':
-                  'Hello! I\'m your NutriGen assistant. I can help you with personalized nutrition advice based on your genetic profile. How can I help you today?',
-            },
-          ];
-        });
-        debugPrint(
-          'No chat history found for user $_userId, initialized with welcome message',
-        );
+        _saveChatHistory();
       }
     } catch (e) {
-      debugPrint('Error loading chat history: $e');
+      debugPrint('Error checking API availability: $e');
     }
   }
 
-  void _sendMessage() async {
+  Future<void> _sendMessage() async {
     final message = _messageController.text.trim();
-    if (message.isEmpty) return;
+    if (message.isEmpty || _isLoading) return;
 
     setState(() {
       _messages.add({'isUser': true, 'message': message});
       _isLoading = true;
-      _messageController.clear();
+      _showMealPlanAcceptance = false;
     });
 
-    // Save chat history
-    _saveChatHistory();
-
-    // Scroll to bottom after message is added
+    _messageController.clear();
     _scrollToBottom();
 
-    if (!_isApiAvailable) {
-      setState(() {
-        _messages.add({
-          'isUser': false,
-          'message':
-              'Sorry, the AI service is currently unavailable. Please try again later.',
-        });
-        _isLoading = false;
-      });
-      _scrollToBottom();
-      return;
-    }
-
     try {
-      // Check if this is a meal plan request
-      final isMealPlanRequest = _modelService.isMealPlanRequest(message);
+      // Prepare chat history for context (reverse and limit to recent messages)
+      final chatHistory = _messages.reversed.take(10).toList();
 
-      // Get AI response from the model service
-      final modelResponse = await _modelService.generateResponse(
+      // Generate enhanced response with Gemini post-processing
+      final response = await _modelService.generateResponse(
         input: message,
         geneMarker: _geneMarker,
-        age: _age,
-        gender: _gender,
-        healthGoals: _healthGoals,
-        dietPreferences: _dietPreferences,
-        allergies: _allergies,
+        age: _userProfile?['age']?.toString(),
+        gender: _userProfile?['gender'],
+        healthGoals: _userProfile?['healthGoals']?.cast<String>(),
+        dietPreferences: _userProfile?['dietPreferences']?.cast<String>(),
+        allergies: _userProfile?['allergies']?.cast<String>(),
+        chatHistory: chatHistory,
       );
 
-      if (isMealPlanRequest) {
-        // Store the response for the meal plan acceptance UI
-        _currentMealPlanResponse = modelResponse;
+      if (!mounted) return;
 
+      setState(() {
+        _messages.add({'isUser': false, 'message': response});
+        _isLoading = false;
+      });
+
+      // Check if response contains a meal plan
+      if (_containsMealPlan(response)) {
         setState(() {
-          _messages.add({'isUser': false, 'message': modelResponse});
           _showMealPlanAcceptance = true;
-          _isLoading = false;
-        });
-      } else {
-        setState(() {
-          _messages.add({'isUser': false, 'message': modelResponse});
-          _isLoading = false;
+          _pendingMealPlan = response;
         });
       }
 
-      // Save chat history after receiving response
       _saveChatHistory();
-
-      // Scroll to bottom after response is added
       _scrollToBottom();
     } catch (e) {
+      if (!mounted) return;
+
       setState(() {
         _messages.add({
           'isUser': false,
           'message':
-              'Sorry, I encountered an error while generating a response. Please try again later.',
+              'I apologize, but I\'m having trouble processing your request right now. Could you please try rephrasing your question?',
         });
         _isLoading = false;
-      });
-
-      // Scroll to bottom after error message is added
-      _scrollToBottom();
-    }
-  }
-
-  // Accept the current meal plan
-  Future<void> _acceptMealPlan() async {
-    try {
-      if (_userId == null) {
-        // Can't save without user ID
-        setState(() {
-          _showMealPlanAcceptance = false;
-          _messages.add({
-            'isUser': false,
-            'message':
-                'Sorry, there was an error saving your meal plan. Please try again after logging in.',
-          });
-        });
-        return;
-      }
-
-      setState(() {
-        _isLoading = true;
         _showMealPlanAcceptance = false;
       });
 
-      // Refine the meal plan for the dashboard using Gemini
-      final refinedMealPlan = await _geminiService.refineMealPlanForDashboard(
-        _currentMealPlanResponse,
-      );
-
-      // Save the refined meal plan to the backend API
-      try {
-        await _geminiService.saveTodaysMealPlan(refinedMealPlan, _userId!);
-
-        // Add confirmation message
-        setState(() {
-          _messages.add({
-            'isUser': false,
-            'message':
-                'Great! I\'ve saved your meal plan. You can view it on your dashboard and meals page. Let me know if you have any questions about it!',
-          });
-          _isLoading = false;
-        });
-      } catch (e) {
-        debugPrint('Error saving meal plan to backend: $e');
-
-        // Show error message
-        setState(() {
-          _messages.add({
-            'isUser': false,
-            'message':
-                'Sorry, I encountered an error while saving your meal plan to the database. Please try again.',
-          });
-          _isLoading = false;
-        });
-      }
-
-      // Save chat history
       _saveChatHistory();
+      _scrollToBottom();
+      debugPrint('Error generating response: $e');
+    }
+  }
 
-      // Scroll to bottom
+  bool _containsMealPlan(String response) {
+    final mealPlanIndicators = [
+      'breakfast',
+      'lunch',
+      'dinner',
+      'meal plan',
+      'calories',
+      'protein',
+      'snack',
+    ];
+
+    final lowercaseResponse = response.toLowerCase();
+    return mealPlanIndicators.any(
+      (indicator) => lowercaseResponse.contains(indicator),
+    );
+  }
+
+  Future<void> _acceptMealPlan() async {
+    if (_pendingMealPlan == null) return;
+
+    try {
+      setState(() => _isLoading = true);
+
+      // Process meal plan for dashboard
+      final structuredMealPlan = await _geminiService
+          .refineMealPlanForDashboard(_pendingMealPlan!);
+
+      // Save to backend
+      await _geminiService.saveTodaysMealPlan(structuredMealPlan, _userId!);
+
+      setState(() {
+        _messages.add({
+          'isUser': false,
+          'message':
+              'Great! I\'ve saved your meal plan. You can view it on your dashboard and meals page. Let me know if you have any questions about it!',
+        });
+        _isLoading = false;
+        _showMealPlanAcceptance = false;
+      });
+
+      _saveChatHistory();
       _scrollToBottom();
     } catch (e) {
       debugPrint('Error accepting meal plan: $e');
@@ -348,17 +256,15 @@ class _AIChatbotScreenState extends State<AIChatbotScreen> {
         _messages.add({
           'isUser': false,
           'message':
-              'Sorry, I encountered an error while processing your meal plan. Please try again.',
+              'Sorry, I encountered an error while saving your meal plan. Please try again.',
         });
         _isLoading = false;
         _showMealPlanAcceptance = false;
       });
-
       _scrollToBottom();
     }
   }
 
-  // Reject the current meal plan
   void _rejectMealPlan() {
     setState(() {
       _showMealPlanAcceptance = false;
@@ -369,10 +275,7 @@ class _AIChatbotScreenState extends State<AIChatbotScreen> {
       });
     });
 
-    // Save chat history
     _saveChatHistory();
-
-    // Scroll to bottom
     _scrollToBottom();
   }
 
@@ -404,7 +307,6 @@ class _AIChatbotScreenState extends State<AIChatbotScreen> {
                 onPressed: () async {
                   Navigator.pop(context);
 
-                  // Keep only the welcome message
                   setState(() {
                     _messages = [
                       {
@@ -414,20 +316,20 @@ class _AIChatbotScreenState extends State<AIChatbotScreen> {
                       },
                     ];
 
-                    // Add the gene marker message if available
                     if (_geneMarker != null) {
                       _messages.add({
                         'isUser': false,
                         'message':
-                            'I see that you have the $_geneMarker genetic marker in your profile. I\'ll use this to provide personalized nutrition recommendations.',
+                            'I see that you have the $_geneMarker genetic marker in your profile. I can provide personalized nutrition recommendations based on this information.',
                       });
                     }
+
+                    _showMealPlanAcceptance = false;
                   });
 
-                  // Save the cleared chat history
                   await _saveChatHistory();
                 },
-                child: const Text('Clear', style: TextStyle(color: Colors.red)),
+                child: const Text('Clear'),
               ),
             ],
           ),
@@ -437,77 +339,23 @@ class _AIChatbotScreenState extends State<AIChatbotScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[50],
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        title: const Text('AI Nutrition Assistant'),
+        backgroundColor: const Color(0xFFCC1C14),
+        foregroundColor: Colors.white,
         elevation: 0,
-        title: const Text(
-          'AI Nutrition Assistant',
-          style: TextStyle(color: Colors.black87, fontWeight: FontWeight.bold),
-        ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.delete, color: Colors.grey),
+            icon: const Icon(Icons.clear_all),
             onPressed: _clearChat,
+            tooltip: 'Clear Chat',
           ),
         ],
       ),
       body: Column(
         children: [
-          // Gene marker banner
-          if (_geneMarker != null)
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              color: Colors.red.shade50,
-              width: double.infinity,
-              child: Row(
-                children: [
-                  const Icon(Icons.science, color: Color(0xFFCC1C14), size: 18),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: Text(
-                      'Using genetic marker: $_geneMarker',
-                      style: const TextStyle(
-                        color: Color(0xFFCC1C14),
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-          // API availability banner
-          if (!_isApiAvailable)
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              color: Colors.amber.shade100,
-              width: double.infinity,
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.warning_amber_rounded,
-                    color: Colors.amber.shade900,
-                    size: 18,
-                  ),
-                  const SizedBox(width: 8),
-                  const Expanded(
-                    child: Text(
-                      'AI service is currently unavailable',
-                      style: TextStyle(
-                        color: Colors.amber,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: _checkApiAvailability,
-                    child: const Text('Retry'),
-                  ),
-                ],
-              ),
-            ),
-
-          // Messages list
+          // Chat messages
           Expanded(
             child: ListView.builder(
               controller: _scrollController,
@@ -515,87 +363,41 @@ class _AIChatbotScreenState extends State<AIChatbotScreen> {
               itemCount: _messages.length,
               itemBuilder: (context, index) {
                 final message = _messages[index];
-                return _buildMessageBubble(
-                  message['message'],
-                  message['isUser'],
-                );
+                return _buildMessageBubble(message);
               },
             ),
           ),
 
-          // Meal plan acceptance UI
-          if (_showMealPlanAcceptance && !_isLoading)
-            Container(
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Colors.red.shade50,
-                border: Border(top: BorderSide(color: Colors.red.shade200)),
-              ),
-              child: Column(
-                children: [
-                  const Text(
-                    'Would you like to add this meal plan to your dashboard?',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                  ),
-                  const SizedBox(height: 12),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      ElevatedButton.icon(
-                        onPressed: _rejectMealPlan,
-                        icon: const Icon(Icons.close),
-                        label: const Text('Reject'),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.grey,
-                          foregroundColor: Colors.white,
-                        ),
-                      ),
-                      ElevatedButton.icon(
-                        onPressed: _acceptMealPlan,
-                        icon: const Icon(Icons.check),
-                        label: const Text('Accept'),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFCC1C14),
-                          foregroundColor: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+          // Meal plan acceptance section
+          if (_showMealPlanAcceptance) _buildMealPlanAcceptance(),
 
           // Loading indicator
           if (_isLoading)
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+            Container(
+              padding: const EdgeInsets.all(16),
+              child: const Row(
                 children: [
-                  SizedBox(
-                    width: 20,
-                    height: 20,
-                    child: CircularProgressIndicator(
-                      strokeWidth: 2,
-                      color: Color(0xFFCC1C14),
+                  CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      Color(0xFFCC1C14),
                     ),
                   ),
-                  SizedBox(width: 8),
+                  SizedBox(width: 16),
                   Text('Thinking...'),
                 ],
               ),
             ),
 
-          // Input area
+          // Message input
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: [
                 BoxShadow(
+                  color: Colors.grey.withOpacity(0.1),
+                  blurRadius: 4,
                   offset: const Offset(0, -2),
-                  blurRadius: 3,
-                  color: Colors.black.withOpacity(0.1),
                 ),
               ],
             ),
@@ -604,13 +406,20 @@ class _AIChatbotScreenState extends State<AIChatbotScreen> {
                 Expanded(
                   child: TextField(
                     controller: _messageController,
+                    enabled: !_isLoading,
                     decoration: InputDecoration(
                       hintText: 'Ask about nutrition or meal plans...',
-                      filled: true,
-                      fillColor: Colors.grey[100],
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(24),
-                        borderSide: BorderSide.none,
+                        borderSide: BorderSide(color: Colors.grey[300]!),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(24),
+                        borderSide: BorderSide(color: Colors.grey[300]!),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(24),
+                        borderSide: const BorderSide(color: Color(0xFFCC1C14)),
                       ),
                       contentPadding: const EdgeInsets.symmetric(
                         horizontal: 16,
@@ -618,14 +427,25 @@ class _AIChatbotScreenState extends State<AIChatbotScreen> {
                       ),
                     ),
                     onSubmitted: (_) => _sendMessage(),
+                    maxLines: 3,
+                    minLines: 1,
                   ),
                 ),
-                const SizedBox(width: 8),
-                CircleAvatar(
-                  backgroundColor: const Color(0xFFCC1C14),
-                  child: IconButton(
-                    onPressed: _sendMessage,
-                    icon: const Icon(Icons.send, color: Colors.white),
+                const SizedBox(width: 12),
+                GestureDetector(
+                  onTap: _isLoading ? null : _sendMessage,
+                  child: Container(
+                    width: 48,
+                    height: 48,
+                    decoration: BoxDecoration(
+                      color: _isLoading ? Colors.grey : const Color(0xFFCC1C14),
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(
+                      Icons.send,
+                      color: Colors.white,
+                      size: 24,
+                    ),
                   ),
                 ),
               ],
@@ -636,23 +456,101 @@ class _AIChatbotScreenState extends State<AIChatbotScreen> {
     );
   }
 
-  Widget _buildMessageBubble(String message, bool isUser) {
-    return Align(
-      alignment: isUser ? Alignment.centerRight : Alignment.centerLeft,
-      child: Container(
-        margin: const EdgeInsets.only(bottom: 16),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        decoration: BoxDecoration(
-          color: isUser ? const Color(0xFFCC1C14) : Colors.grey[200],
-          borderRadius: BorderRadius.circular(16),
-        ),
-        constraints: BoxConstraints(
-          maxWidth: MediaQuery.of(context).size.width * 0.75,
-        ),
-        child: Text(
-          message,
-          style: TextStyle(color: isUser ? Colors.white : Colors.black87),
-        ),
+  Widget _buildMessageBubble(Map<String, dynamic> message) {
+    final isUser = message['isUser'] == true;
+    final messageText = message['message'] as String;
+
+    return Container(
+      margin: const EdgeInsets.only(bottom: 16),
+      child: Row(
+        mainAxisAlignment:
+            isUser ? MainAxisAlignment.end : MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (!isUser) ...[
+            CircleAvatar(
+              backgroundColor: const Color(0xFFCC1C14),
+              radius: 16,
+              child: const Icon(Icons.smart_toy, color: Colors.white, size: 16),
+            ),
+            const SizedBox(width: 8),
+          ],
+          Flexible(
+            child: Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: isUser ? const Color(0xFFCC1C14) : Colors.white,
+                borderRadius: BorderRadius.circular(16),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.1),
+                    blurRadius: 4,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
+              ),
+              child: Text(
+                messageText,
+                style: TextStyle(
+                  color: isUser ? Colors.white : Colors.black87,
+                  fontSize: 14,
+                ),
+              ),
+            ),
+          ),
+          if (isUser) ...[
+            const SizedBox(width: 8),
+            CircleAvatar(
+              backgroundColor: Colors.grey[300],
+              radius: 16,
+              child: Icon(Icons.person, color: Colors.grey[600], size: 16),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMealPlanAcceptance() {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      margin: const EdgeInsets.symmetric(horizontal: 16),
+      decoration: BoxDecoration(
+        color: Colors.blue[50],
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Colors.blue[200]!),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'Would you like me to save this meal plan to your dashboard?',
+            style: TextStyle(fontWeight: FontWeight.w500),
+          ),
+          const SizedBox(height: 12),
+          Row(
+            children: [
+              Expanded(
+                child: ElevatedButton(
+                  onPressed: _isLoading ? null : _acceptMealPlan,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    foregroundColor: Colors.white,
+                  ),
+                  child: const Text('Yes, Save It'),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: OutlinedButton(
+                  onPressed: _isLoading ? null : _rejectMealPlan,
+                  style: OutlinedButton.styleFrom(foregroundColor: Colors.red),
+                  child: const Text('No, Thanks'),
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
